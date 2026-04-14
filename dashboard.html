@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EliteSMS | Dashboard</title>
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent border-bottom border-secondary p-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="dashboard.html">ELITE<span>SMS</span></a>
+            <div class="d-flex align-items-center">
+                <a href="orders.html" class="nav-link me-3"><i class="fas fa-list-ul"></i></a>
+                <a href="profile.html" class="nav-link"><img id="navProfilePic" src="https://ui-avatars.com" class="rounded-circle" width="35"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-md-6 mx-auto">
+                <div class="premium-card wallet-card text-center p-4">
+                    <p class="mb-1 opacity-75">Your Balance</p>
+                    <h1 class="fw-bold" id="userBalance">$0.00</h1>
+                    <div class="input-group mt-3">
+                        <input type="number" id="rechargeAmount" class="form-control border-0" placeholder="Enter Amount">
+                        <button class="btn btn-light" id="addMoneyBtn">Add Money</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="fw-bold mb-4">Select Service</h4>
+        <div class="row g-4" id="servicesGrid">
+            <!-- Services injected via JS -->
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div class="modal fade" id="buyModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title" id="modalTitle">Buy OTP</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Price: <span id="modalPrice" class="text-primary fw-bold"></span></p>
+                    <div class="mb-3">
+                        <label>Country</label>
+                        <select id="countrySelect" class="form-select bg-dark text-white border-secondary">
+                            <option value="IN">India (+91)</option>
+                            <option value="US">USA (+1)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Quantity</label>
+                        <input type="number" id="qtyInput" class="form-control bg-dark text-white border-secondary" value="1">
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button id="confirmPurchase" class="btn btn-primary w-100">Confirm Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://razorpay.com"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
